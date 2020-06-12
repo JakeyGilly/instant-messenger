@@ -1,8 +1,10 @@
 import threading
 import socket
 import time as t
+import random as r
 
 name = input("Please enter your name: ")
+name = name + "#" + str(r.randint(100000,999999))
 clientsocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 clientsocket.connect((input("IP of server? (eg: 127.0.0.1)"), int(input("Port of server? (eg: 1111)"))))
 clientsocket.setblocking(True)
@@ -17,7 +19,7 @@ def get_input():
 			ah = msg.decode()
 			epic = ah.split(",")
 			if epic[0] != name:
-				print(f"\n{epic[0]}) {epic[1]}")
+				print(f"\n{epic[0][:-7]}) {epic[1]}")
 
 
 input_thread = threading.Thread(target=get_input)
@@ -28,5 +30,6 @@ while True:
 	message = input(f"")
 	toSend = name + "," + message
 	if message == "/exit":
-		toSend = f"Disconnect,{name} Has disconnected!"
+		toSend = f"Disconnect#0000000,{name} Has disconnected!"
+		clientsocket.close()
 	clientsocket.send(toSend.encode())

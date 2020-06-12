@@ -8,7 +8,7 @@ def recv(clientsocket,addr):
         msg = clientsocket.recv(1024)
         ah = msg.decode()
         epic = ah.split(",")
-        if epic[0] == "Disconnect":
+        if epic[0] == "Disconnect#000000":
             clients.remove(clientsocket)
             print(f'[CONNECT] Disconnected  {addr}')
         else:

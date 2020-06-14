@@ -15,15 +15,22 @@ def recv(clientsocket,addr):
             print(f"[MESSAGE] Message received: {epic[0]} saying {epic[1]}")
         for i in range(len(clients)):
             client = clients[i]
-            client.sendall(ah.encode())
+            try:
+             client.sendall(ah.encode())
+            except BrokenPipeError:
+                clients.remove(clients[i])
+                break
+
     clientsocket.close()
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-IP = "127.0.0.1"
+host_name = socket.gethostname()
+IP = socket.gethostbyname(host_name)
 PORT = int(input("port? "))
 
 
 print("           Thanks for choosing PyChat!")
+print("               PyChat Server V0.1")
 print("                Server started!")
 print("------------------------------------------------")
 print(f"Listening for connections on {IP}:{PORT}...")

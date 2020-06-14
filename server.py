@@ -12,7 +12,7 @@ def recv(clientsocket,addr):
             clients.remove(clientsocket)
             print(f'[DISCONNECT] Disconnected  {addr}')
         elif epic[0] == "INFO#000000":
-             ah = f"[SERVER],{epic[1]} has joined the chat!"
+             ah = f"[SERVER]#000000,{epic[1]} has joined the chat!"
         else:
             print(f"[MESSAGE] Message received: {epic[0]} saying {epic[1]}")
         for i in range(len(clients)):

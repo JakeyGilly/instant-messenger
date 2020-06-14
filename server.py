@@ -10,7 +10,9 @@ def recv(clientsocket,addr):
         epic = ah.split(",")
         if epic[0] == "Disconnect#000000":
             clients.remove(clientsocket)
-            print(f'[CONNECT] Disconnected  {addr}')
+            print(f'[DISCONNECT] Disconnected  {addr}')
+        elif epic[0] == "INFO#000000":
+             ah = f"[SERVER],{epic[1]} has joined the chat!"
         else:
             print(f"[MESSAGE] Message received: {epic[0]} saying {epic[1]}")
         for i in range(len(clients)):
@@ -26,11 +28,25 @@ def recv(clientsocket,addr):
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 host_name = socket.gethostname()
 IP = socket.gethostbyname(host_name)
+ipcorrect = input(f"Is your private IP: {IP}? [Y/N]")
+answered = False
+
+while not answered:
+    if ipcorrect.lower() == "y":
+        IP = IP
+        answered = True
+    elif ipcorrect.lower() == "n":
+        IP = input("What is your private IP")
+        answered = True
+    else:
+        print("Please enter Y/N")
+
+
 PORT = int(input("port? "))
 
 
 print("           Thanks for choosing PyChat!")
-print("               PyChat Server V0.1")
+print("              PyChat Server V0.1.1")
 print("                Server started!")
 print("------------------------------------------------")
 print(f"Listening for connections on {IP}:{PORT}...")

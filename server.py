@@ -6,6 +6,7 @@ clients = []
 
 def recv(clientsocket,addr):
     while True:
+        now = datetime.datetime.now()
         msg = clientsocket.recv(1024)
         ah = msg.decode()
         epic = ah.split(",")

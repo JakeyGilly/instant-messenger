@@ -8,6 +8,17 @@ def getNameData(event=None):
     root.destroy()
 
 
+def getIPData(event=None):
+    global ip
+    global port
+    ip = eip.get()
+    port = eport.get()
+    global clientsocket
+    clientsocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    clientsocket.connect((ip, int(port)))
+    serverselector.destroy()
+
+
 def recv():
     while 1:
         msg = clientsocket.recv(1024)
@@ -28,20 +39,29 @@ def send(event=None):
             root2.destroy()
         clientsocket.send(f"{name},{msg}".encode())
 
-
-clientsocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-clientsocket.connect(("127.0.0.1", 1111))
 root = tk.Tk()
 tk.Label(root, text="Name: ").pack()
 root.bind('<Return>', getNameData)
 ename = tk.Entry(root)
 ename.pack()
-
 tk.Button(root, text="Next", command=getNameData).pack()
 root.mainloop()
 
+serverselector = tk.Tk()
+tk.Label(serverselector, text="Enter Server IP Address and port").pack()
+eip = tk.Entry(serverselector)
+eport = tk.Entry(serverselector)
+textip = tk.Label(serverselector, text="IP: ").pack()
+eip.pack()
+textport= tk.Label(serverselector, text="Port: ").pack()
+eport.pack()
+serverbutton = tk.Button(serverselector, text="Next", command=getIPData).pack(side=tk.BOTTOM)
+serverselector.bind('<Return>', getIPData)
+serverselector.mainloop()
+
 root2 = tk.Tk()
 root2.geometry("300x1000")
+clientsocket.send(f"INFO#000000,{name}".encode())
 root2.bind('<Return>', send)
 framea = tk.Frame(root2).pack()
 ent = tk.Entry(root2)

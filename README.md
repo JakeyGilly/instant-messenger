@@ -14,11 +14,11 @@ Then, run the server script
 ```cd instant-messenger/```
 
 ```python3 server.py```
-###Setup
+### Setup
 
 When you start up the server script, it will try to guess your private IP.
  
- ```Is your private IP: 172.0.0.1? [Y/N]```
+ ```Is your private IP: XXX.X.X.X? [Y/N]```
 
 If it says anything other than your private IP, then type 'N' and then put in your private IP.
 
@@ -38,7 +38,7 @@ Listening for connections on XXX.XXX.X.XXX:1111...
 This means the server is now active.
 If you want people to be able to connect from outside your network, you will need to port forward the port.
 
-##Getting Started (clientGUI.py)
+## Getting Started (clientGUI.py)
 How to get started with the GUI based client.
 ### Installing
 First, you need to clone the repo:
@@ -50,7 +50,7 @@ Then, run the server script:
 ```cd instant-messenger/```
 
 ```python3 clientGUI.py```
-###Setup
+### Setup
 When setting up, you will see a a screen like this:
 
 ![Recordit GIF](http://g.recordit.co/Do4IaTjYym.gif)
@@ -85,7 +85,7 @@ It will ask you for your name (What you want to connect as) , an IP address to c
 
 There is also a basic terminal version (clientBasic.py) instead if you don't want to use any plugins
 
-##Authors
+## Authors
 
 - Jake Gillman - _Initial Idea, Basic Terminal and GUI client_ - [JakeyGilly](https://github.com/JakeyGilly/)
 - Finn O'Neill - _Server, Basic Terminal and Terminal Client_ - [Explorer017](https://github.com/Explorer017/)

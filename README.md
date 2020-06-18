@@ -88,5 +88,5 @@ There is also a basic terminal version (clientBasic.py) instead if you don't wan
 ## Authors
 
 - Jake Gillman - _Initial Idea, Basic Terminal, a bit of the server and GUI client_ - [JakeyGilly](https://github.com/JakeyGilly/)
-- Finn O'Neil - _Server, Basic Terminal and Terminal Client_ - [Explorer017](https://github.com/Explorer017/)
+- Finn O'Neill - _Server, Basic Terminal and Terminal Client_ - [Explorer017](https://github.com/Explorer017/)
 

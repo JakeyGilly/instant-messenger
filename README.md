@@ -45,7 +45,7 @@ First, you need to clone the repo:
 
 ```git clone https://github.com/JakeyGilly/instant-messenger```
 
-Then, run the server script:
+Then, run the script:
 
 ```cd instant-messenger/```
 

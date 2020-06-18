@@ -61,7 +61,7 @@ This lets you type your name in to connect as. You will then be greeted with a s
 
 After this, it will connect you to the server.
 
-##Getting Started (clientTerminal.py)
+## Getting Started (clientTerminal.py)
 How to get started with the GUI based client.
 
 ### Prerequisites

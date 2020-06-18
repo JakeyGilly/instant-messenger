@@ -78,6 +78,7 @@ Then, run the script:
 ```cd instant-messenger/```
 
 ```python3 clientTerminal.py```
+
 ###Setup
 It will ask you for your name (What you want to connect as) , an IP address to connect to and the port on the IP. Then it will connect you in.
 ![Recordit GIF](http://g.recordit.co/JZGWUH97aT.gif)
